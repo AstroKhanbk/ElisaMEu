@@ -10,7 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport = require('./config/passport');
 const session = require('express-session');
-
+const cors = require('cors');
 
 mongoose
   .connect(process.env.mongoDB, {useNewUrlParser: true})
@@ -25,6 +25,15 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+//Cors
+app.use(
+  cors({
+    credentials: true,
+    origin: ['http://localhost:3000',
+        'https://radiant-ridge-01211.herokuapp.com/']
+  })
+);
 
 app.use(
   session({
