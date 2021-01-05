@@ -1,22 +1,22 @@
 const Product = require('./../models/Product')
 
-exports.createProduct = async (req, res) => {
+exports.createProduct = async (req, res)=> {
   const {
     name,
     description,
     price,
     category,
     stock,
-    image
   } = req.body
-  
+  const {path} = req.file;
+  console.log('path---', path)
   Product.create({
     name,
     description,
     price,
     category,
     stock,
-    image
+    image:path
   })
   .then(product => {
     res.status(200).json({ product })
