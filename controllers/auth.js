@@ -17,3 +17,13 @@ exports.logout = (req, res, next) => {
   req.logout();
   res.status(200).json({ msg: 'Logged out' });
 };
+
+exports.user = (req, res, next) => {
+  try {
+    const userData = req.user
+    console.log('aquiii', userData)
+    res.status(201).json({ userData })
+  } catch (error) {
+    console.log('Error', error)
+  }
+}

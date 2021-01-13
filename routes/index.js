@@ -24,16 +24,21 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage: storage });
 
-const { signup, login, logout} = require('../controllers/auth');
-const { createProduct, getProducts } = require('../controllers/products');
+const { signup, login, logout, user} = require('../controllers/auth');
+const { createProduct, getProducts, getProduct, editProduct, deleteProduct } = require('../controllers/products');
 
 //Auth
 router.post('/signup', signup);
 router.post('/login', passport.authenticate('local'), login);
 router.get('/logout', logout);
+router.get('/user', user)
 
 //Productos
 router.post('/createProduct', upload.single('image_product'), createProduct)
 router.get('/products', getProducts)
+router.get('/products/:id', getProduct)
+router.post('/editProduct/:id', upload.single('image_product'), editProduct)
+router.delete('/deleteProduct/:id', deleteProduct);
+
 
 module.exports = router;

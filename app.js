@@ -31,7 +31,8 @@ app.use(
   cors({
     credentials: true,
     origin: ['http://localhost:3000',
-        'https://radiant-ridge-01211.herokuapp.com/']
+      'https://inventario-ten.vercel.app/',
+      'https://radiant-ridge-01211.herokuapp.com/']
   })
 );
 
