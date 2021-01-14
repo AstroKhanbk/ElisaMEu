@@ -20,9 +20,10 @@ exports.logout = (req, res, next) => {
 
 exports.user = (req, res, next) => {
   try {
-    const userData = req.user
-    console.log('aquiii', userData)
-    res.status(201).json({ userData })
+    // const userData = req.user
+    // console.log('aquiii', userData)
+    // res.status(201).json({ userData })
+    res.send(req.user)
   } catch (error) {
     console.log('Error', error)
   }
