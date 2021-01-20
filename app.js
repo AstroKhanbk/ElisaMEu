@@ -28,14 +28,13 @@ const app = express();
 
 //Cors
 app.use(
-  // cors({
-  //   credentials: true,
-  //   origin: ['http://localhost:3000',
-  //     'https://inventario-ten.vercel.app/',
-  //     'https://inventario-69tpsqtf8-elisamesquivel-gmailcom.vercel.app',
-  //     'https://radiant-ridge-01211.herokuapp.com/']
-  // })
-  cors()
+  cors({
+    credentials: true,
+    origin: ['http://localhost:3000',
+      'https://inventario-ten.vercel.app/',
+      'https://inventario-69tpsqtf8-elisamesquivel-gmailcom.vercel.app',
+      'https://radiant-ridge-01211.herokuapp.com/'],
+  })
 );
 
 app.use(
